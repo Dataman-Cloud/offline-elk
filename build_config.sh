@@ -10,7 +10,10 @@ replace_var(){
     files=$@
     echo $files | xargs sed -i 's#--ES_HEAP_SIZE--#'$ES_HEAP_SIZE'#g'
     echo $files | xargs sed -i 's#--LS_HEAP_SIZE--#'$LS_HEAP_SIZE'#g'
-
+    echo $files | xargs sed -i 's#--LS_WORKERS--#'$LS_WORKERS'#g'
+    echo $files | xargs sed -i 's#--LS_FLUSH_SIZE--#'$LS_FLUSH_SIZE'#g'
+    echo $files | xargs sed -i 's#--LS_IDLE_FLUSH_TIME--#'$LS_IDLE_FLUSH_TIME'#g'
+    echo $files | xargs sed -i 's#--LS_STDOUT_LEVEL--#'$LS_STDOUT_LEVEL'#g'
 }
 
 pre_conf(){

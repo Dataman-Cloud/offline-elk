@@ -10,20 +10,24 @@ elasticsearch:
     - TRANSPORT_TCP_PORT=9300
   volumes:
     - /data/app/elasticsearch:/data/app/elasticsearch
-    - ./conf/elasticsearch.yml.template:/usr/share/elasticsearch/config/elasticsearch.yml.template
+#    - ./conf/elasticsearch.yml.template:/usr/share/elasticsearch/config/elasticsearch.yml.template
   restart: always
 logstash:
-  image: offlineregistry.dataman-inc.com:5000/library/centos7-docker-logstash:v1.5.4.2016083003
+  image: offlineregistry.dataman-inc.com:5000/library/centos7-docker-logstash:v1.5.4.2016083007
   net: host
   environment:
     - ES_HOST=127.0.0.1
     - ES_PORT=9200
     - LOGSTASH_PORT=5011
     - LS_HEAP_SIZE=1g
-    - STDOUTNULL=true
-  volumes:
-    - ./conf/dataman.conf.temp:/usr/local/logstash/conf/dataman.conf.temp
-    - ./conf/logstash.json:/usr/local/logstash/conf/logstash.json
+    - LS_WORKERS=8
+    - LS_FLUSH_SIZE=20000
+    - LS_IDLE_FLUSH_TIME=10
+    - LS_STDOUT_LEVEL=
+#    - STDOUTNULL=false
+#  volumes:
+#    - ./conf/dataman.conf.temp:/usr/local/logstash/conf/dataman.conf.temp
+#    - ./conf/logstash.json:/usr/local/logstash/conf/logstash.json
   restart: always
 kibana:
   image: offlineregistry.dataman-inc.com:5000/library/centos7-docker-kibana:v4.1.3.2016083102
