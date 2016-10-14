@@ -13,7 +13,7 @@ replace_var(){
     echo $files | xargs sed -i 's#--LS_WORKERS--#'$LS_WORKERS'#g'
     echo $files | xargs sed -i 's#--LS_FLUSH_SIZE--#'$LS_FLUSH_SIZE'#g'
     echo $files | xargs sed -i 's#--LS_IDLE_FLUSH_TIME--#'$LS_IDLE_FLUSH_TIME'#g'
-    echo $files | xargs sed -i 's#--LS_STDOUT_LEVEL--#'$LS_STDOUT_LEVEL'#g'
+    echo $files | xargs sed -i 's#--LS_STDOUT_LEVEL--#'"$LS_STDOUT_LEVEL"'#g'
 }
 
 pre_conf(){
