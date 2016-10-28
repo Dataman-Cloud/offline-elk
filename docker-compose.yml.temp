@@ -10,6 +10,7 @@ elasticsearch:
     - TRANSPORT_TCP_PORT=9300
   volumes:
     - /data/app/elasticsearch:/data/app/elasticsearch
+    - /data/log/elasticsearch:/data/log/elasticsearch
 #    - ./conf/elasticsearch.yml.template:/usr/share/elasticsearch/config/elasticsearch.yml.template
   restart: always
 logstash:
