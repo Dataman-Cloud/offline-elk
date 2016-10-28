@@ -8,6 +8,7 @@ set -eu
 
 replace_var(){
     files=$@
+    echo $files | xargs sed -i 's#--ES_CLUSTER_NAME--#'$ES_CLUSTER_NAME'#g'
     echo $files | xargs sed -i 's#--ES_HEAP_SIZE--#'$ES_HEAP_SIZE'#g'
     echo $files | xargs sed -i 's#--LS_HEAP_SIZE--#'$LS_HEAP_SIZE'#g'
     echo $files | xargs sed -i 's#--LS_WORKERS--#'$LS_WORKERS'#g'

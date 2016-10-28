@@ -2,7 +2,7 @@ elasticsearch:
   image: offlineregistry.dataman-inc.com:5000/library/centos7-docker-elasticsearch:v1.4.5.2016102304
   net: host
   environment:
-    - CLUSTERNAME=dm-log-es
+    - CLUSTER_NAME=dm-log-es
     - DATA_PATH=/data/app/elasticsearch
     - LOGS_PATH=/data/log/elasticsearch
     - ES_HEAP_SIZE=1g
