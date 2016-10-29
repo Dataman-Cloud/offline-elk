@@ -9,5 +9,5 @@ job_cmd="/data/offlinesry/offline-elk/clean_es.sh"
 
 crontab -l 2>/dev/null|grep -F "$job_cmd" || (crontab -l 2>/dev/null;echo "0 4 * * * $job_cmd" ) | crontab -
 
-docker-compose -p elk up -d
+docker-compose -p dataman up -d
 
