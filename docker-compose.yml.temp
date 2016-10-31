@@ -1,5 +1,5 @@
 elasticsearch:
-  image: offlineregistry.dataman-inc.com:5000/library/centos7-docker-elasticsearch:v1.4.5.2016102304
+  image: offlineregistry.dataman-inc.com:5000/library/centos7-docker-elasticsearch:v1.4.5.2016102305
   net: host
   environment:
     - CLUSTER_NAME=--ES_CLUSTER_NAME--
